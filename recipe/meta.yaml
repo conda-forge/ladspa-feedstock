@@ -1,5 +1,5 @@
 {% set name = "ladspa" %}
-{% set version = "1.15" %}
+{% set version = "1.17" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: http://www.ladspa.org/download/ladspa_sdk_{{ version }}.tgz
-  sha256: 4229959b09d20c88c8c86f4aa76427843011705df22d9c28b38359fd1829fded
+  sha256: d9d596171d93f9c226fcdb7e27c6f917422ac487efe2c05e0a18094df4268061
   patches:
     - Makefile.patch
 
 build:
   number: 0
-  skip: True  # [not linux]
+  skip: true  # [not linux]
   run_exports:
     - {{ pin_subpackage('ladspa', max_pin='x.x') }}
 
@@ -32,7 +32,7 @@ about:
   license: LGPL-2.1-or-later
   license_family: GPL
   license_file: doc/COPYING
-  summary: 'A standard that allows software audio processors and effects to be plugged into audio synthesis and recording packages'
+  summary: A standard that allows software audio processors and effects to be plugged into audio synthesis and recording packages
   doc_url: https://www.ladspa.org/ladspa_sdk/overview.html
 
 extra:
